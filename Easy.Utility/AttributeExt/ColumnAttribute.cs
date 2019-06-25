@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 namespace Easy.Utility.AttributeExt
 {
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-  public  class RemarkAttribute:Attribute
+  public  class ColumnAttribute : Attribute
     {
-        private string _Remark = null;
-        public RemarkAttribute(string remark)
+        private string _ColumnName = null;
+        public ColumnAttribute(string columnName)
         {
-            this._Remark = remark;
+            this._ColumnName = columnName;
         }
        
-        public string GetRemark()
+        public string GetColumn()
         {
-            return this._Remark;
+            return this._ColumnName;
         }
     }
 }

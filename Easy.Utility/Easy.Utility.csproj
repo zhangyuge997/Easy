@@ -45,7 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttributeExt\AttributeHelper.cs" />
+    <Compile Include="AttributeExt\ColumnAttribute.cs" />
     <Compile Include="AttributeExt\RemarkAttribute.cs" />
+    <Compile Include="MappingExt\ExpressionMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\Http.cs" />
     <Compile Include="Utility\JsonConvertHelper.cs" />
