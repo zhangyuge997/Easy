@@ -45,21 +45,7 @@ namespace Easy.Console
         public static List<People> list { get; set; }
         static void Main(string[] args)
         {
-          var a=  ExpressionMapper<People, PeopleCopy>.Trans(new People() { Id = 1, Name = "22" });
-
-            string a1 = "{\"avatar\":\"https://thirdwx.qlogo.cn/mmopen/m8nmFV00P0cQK2z9jLkbzl8WAwqOCDSlLM18ibSeb8yVutn7AU2f0qaJCauy8uichTckoiaNJwqSzSDtO4iauxkQx7q0zvYz3ndB/132\",\"uid\":\"57CB47D7692F60FB\"}";
-
-            var b = JsonConvertHelper.DeserializeObject<People1>(a1);
-            System.Console.WriteLine(JsonConvertHelper.DeserializeObject<People1>(a1));
-
-            //list = new List<People>();
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    list.Add(new People() { Id = i, Name = i.ToString() });
-            //}
-            //var b = list.AsQueryable().Where(m => m.Id.aaa() == 10).ToList();
-            //System.Console.WriteLine(b);
-            //var result= ExpressionMapper<People, PeopleCopy>.Trans(new People() { Id = 111, Name = "222" });
+          var a=  ExpressionMapper<People, PeopleCopy>.Map(new People() { Id = 1, Name = "22" });
 
 
             //  System.Console.WriteLine(JsonConvertHelper.SerializeObject(result));

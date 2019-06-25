@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Easy.Utility.MappingExt
 {
     /// <summary>
-    /// 生成表达式目录树  泛型缓存
+    /// 生成表达式目录树+泛型缓存
     /// </summary>
     /// <typeparam name="TIn"></typeparam>
     /// <typeparam name="TOut"></typeparam>
@@ -48,7 +48,12 @@ namespace Easy.Utility.MappingExt
             });
             _FUNC = lambda.Compile();
         }
-        public static TOut Trans(TIn t)
+        /// <summary>
+        /// 实体映射
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public static TOut Map(TIn t)
         {
             return _FUNC(t);
         }

@@ -45,6 +45,11 @@ namespace Easy.Utility.AttributeExt
                 return prop.Name;
             }
         }
+        /// <summary>
+        /// 获取属性的备注信息
+        /// </summary>
+        /// <param name="prop"></param>
+        /// <returns></returns>
         public static string GetRemark(this FieldInfo prop)
         {
             if (prop.IsDefined(typeof(RemarkAttribute), true))
@@ -75,6 +80,11 @@ namespace Easy.Utility.AttributeExt
                 return prop.Name;
             }
         }
+        /// <summary>
+        /// 获取属性的对应的列名
+        /// </summary>
+        /// <param name="prop"></param>
+        /// <returns></returns>
         public static string GetColumn(this FieldInfo prop)
         {
             if (prop.IsDefined(typeof(ColumnAttribute), true))
@@ -87,5 +97,6 @@ namespace Easy.Utility.AttributeExt
                 return prop.Name;
             }
         }
+
     }
 }
