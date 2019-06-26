@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace Easy.Utility.AttributeExt
 {
-  public static class AttributeHelper
+    /// <summary>
+    /// 特性的帮助类
+    /// </summary>
+    public static class AttributeHelper
     {
         /// <summary>
         /// 获取枚举的备注信息
@@ -31,7 +34,7 @@ namespace Easy.Utility.AttributeExt
         /// <summary>
         /// 获取属性的备注信息
         /// </summary>
-        /// <param name="prop"></param>
+        /// <param name="prop">属性</param>
         /// <returns></returns>
         public static string GetRemark(this PropertyInfo prop)
         {
@@ -46,27 +49,26 @@ namespace Easy.Utility.AttributeExt
             }
         }
         /// <summary>
-        /// 获取属性的备注信息
+        /// 获取字段的备注信息
         /// </summary>
-        /// <param name="prop"></param>
+        /// <param name="field">字段</param>
         /// <returns></returns>
-        public static string GetRemark(this FieldInfo prop)
+        public static string GetRemark(this FieldInfo field)
         {
-            if (prop.IsDefined(typeof(RemarkAttribute), true))
+            if (field.IsDefined(typeof(RemarkAttribute), true))
             {
-                RemarkAttribute attribute = (RemarkAttribute)prop.GetCustomAttribute(typeof(RemarkAttribute), true);
+                RemarkAttribute attribute = (RemarkAttribute)field.GetCustomAttribute(typeof(RemarkAttribute), true);
                 return attribute.GetRemark();
             }
             else
             {
-                return prop.Name;
+                return field.Name;
             }
         }
-
         /// <summary>
         /// 获取属性的对应的列名
         /// </summary>
-        /// <param name="prop"></param>
+        /// <param name="prop">属性</param>
         /// <returns></returns>
         public static string GetColumn(this PropertyInfo prop)
         {
@@ -81,20 +83,20 @@ namespace Easy.Utility.AttributeExt
             }
         }
         /// <summary>
-        /// 获取属性的对应的列名
+        /// 获取字段的对应的列名
         /// </summary>
-        /// <param name="prop"></param>
+        /// <param name="field">字段</param>
         /// <returns></returns>
-        public static string GetColumn(this FieldInfo prop)
+        public static string GetColumn(this FieldInfo field)
         {
-            if (prop.IsDefined(typeof(ColumnAttribute), true))
+            if (field.IsDefined(typeof(ColumnAttribute), true))
             {
-                ColumnAttribute attribute = (ColumnAttribute)prop.GetCustomAttribute(typeof(ColumnAttribute), true);
+                ColumnAttribute attribute = (ColumnAttribute)field.GetCustomAttribute(typeof(ColumnAttribute), true);
                 return attribute.GetColumn();
             }
             else
             {
-                return prop.Name;
+                return field.Name;
             }
         }
 
