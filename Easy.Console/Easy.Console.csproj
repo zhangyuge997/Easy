@@ -80,6 +80,10 @@
       <Project>{AC397369-052D-4FCC-B7C5-9A54CB28FD7B}</Project>
       <Name>Easy.Utility</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TEasy\TEasy.csproj">
+      <Project>{260252CA-F91B-43F7-BD6C-B7BB33A28EF1}</Project>
+      <Name>TEasy</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

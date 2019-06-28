@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using TEasy;
 using Topshelf;
 
 namespace Easy.Console
@@ -25,7 +26,11 @@ namespace Easy.Console
     public class People
     {
         public int Id { get; set; }
+        public int Age { get; set; }
+        public int Sex { get; set; }
+        
         public string Name { get; set; }
+        public bool IsDelete { get; set; }
     }
     public class People1
     {
@@ -43,9 +48,28 @@ namespace Easy.Console
     {
      
         public static List<People> list { get; set; }
+        public static List<People> load()
+        {
+            var result = new List<People>();
+            for (int i = 0; i < 10; i++)
+            {
+                result.Add(new People() { Id = i, Name = i.ToString() });
+            }
+            return result;
+        }
         static void Main(string[] args)
         {
-          var a=  ExpressionMapper<People, PeopleCopy>.Map(new People() { Id = 1, Name = "22" });
+            var result = load();
+            Expression<Func<People, bool>> expression = u => u.Age >= 20;
+            (string whereClause, Dictionary<string, object> parameters) = expression.ToWhereClause(false);
+            System.Console.WriteLine(whereClause);
+
+
+
+
+
+
+            // var a=  ExpressionMapper<People, PeopleCopy>.Map(new People() { Id = 1, Name = "22" });
 
 
             //  System.Console.WriteLine(JsonConvertHelper.SerializeObject(result));
