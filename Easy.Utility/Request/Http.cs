@@ -11,6 +11,11 @@ namespace Easy.Utility.Request
 {
    public class HttpRequest
     {
+        private static HttpClient client = null;
+        static HttpRequest()
+        {
+            client = new HttpClient();
+        }
         /// <summary>
         /// http请求
         /// </summary>
@@ -22,8 +27,8 @@ namespace Easy.Utility.Request
         public static string HttpPost(string url, string postData = null, string contentType = null, Dictionary<string, string> headers = null)
         {
             postData = postData ?? "";
-            using (HttpClient client = new HttpClient())
-            {
+            //using (HttpClient client = new HttpClient())
+            //{
                 if (headers != null)
                 {
                     foreach (var header in headers)
@@ -37,7 +42,7 @@ namespace Easy.Utility.Request
                     HttpResponseMessage response = client.PostAsync(url, httpContent).Result;
                     return response.Content.ReadAsStringAsync().Result;
                 }
-            }
+            //}
         }
     
     }
